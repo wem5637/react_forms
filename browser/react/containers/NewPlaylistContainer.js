@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import FilterInput from '../components/FilterInput';
 import NewPlaylist from '../components/NewPlaylist';
-
+import axios from 'axios';
 
 class NewPlaylistContainer extends React.Component {
   constructor(){
@@ -24,7 +24,17 @@ class NewPlaylistContainer extends React.Component {
   HandleSubmit(event){
     event.preventDefault();
     console.log(this.state.inputValue)
+    this.createPlaylist(this.state.inputValue);
     this.setState({inputValue:''});
+  }
+
+  createPlaylist(name){
+    console.log("createPlaylist executing, ",name);
+    axios.post('/api/playlists/', {name})
+      .then(res => res.data)
+      .then(result => {
+	console.log(result) // response json from the server!
+  });
   }
 
   isValidInput(str){

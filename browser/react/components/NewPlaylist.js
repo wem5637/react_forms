@@ -7,7 +7,7 @@ const NewPlaylist = function (props) {
   console.log("isValid:",errors);
   return (
     <div className="well">
-      {errors.map(err=><h4>{err}</h4>)}
+      {errors.map((err,i)=><h4 key={i}>{err}</h4>)}
       <form onSubmit ={props.HandleSubmit} className="form-horizontal" >
 	<fieldset>
 	  <legend>New Playlist</legend>

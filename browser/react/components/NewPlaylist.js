@@ -3,9 +3,11 @@ import { Link } from 'react-router';
 
 
 const NewPlaylist = function (props) {
-  console.log("isValid:",props.isValid);
+  var errors = props.isValid.split('\n').filter((e)=> e==="" ? false : true);
+  console.log("isValid:",errors);
   return (
     <div className="well">
+      {errors.map(err=><h4>{err}</h4>)}
       <form onSubmit ={props.HandleSubmit} className="form-horizontal" >
 	<fieldset>
 	  <legend>New Playlist</legend>
@@ -21,7 +23,7 @@ const NewPlaylist = function (props) {
 	    <div className="col-xs-10 col-xs-offset-2">
 	      <button type="submit" 
 		      className="btn btn-success"
-		      disabled={props.isValid ? false : true}
+		      disabled={props.isValid.length == 0 ? false : true}
 		      >Create Playlist</button>
 	    </div>
 	  </div>

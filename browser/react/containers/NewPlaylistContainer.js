@@ -9,7 +9,7 @@ class NewPlaylistContainer extends React.Component {
     super();
     this.state={
       inputValue: '',
-      isValid: false
+      isValid: "",
     }
     this.FormChange = this.FormChange.bind(this);
     this.HandleSubmit = this.HandleSubmit.bind(this);
@@ -28,12 +28,11 @@ class NewPlaylistContainer extends React.Component {
   }
 
   isValidInput(str){
-    let isNotEmpty=()=> str.length === 0 ? false : true;
+    let isNotEmpty=()=> str.length != 0 ? "" : "Playlist name cannot be empty\n";
     
-    let isLessThanSixteenChar=()=> str.length <= 16 ? true : false;
-    
-    return isNotEmpty() &&
-           isLessThanSixteenChar();
+    let isLessThanSixteenChar=()=> str.length <= 16 ? "" : "Playlist name must be 16 characters or less\n";
+   
+    return isNotEmpty() + isLessThanSixteenChar();
   }
 
   render(){

@@ -19,7 +19,9 @@ return (
       <div className="form-group">
         <div className="col-xs-10 col-xs-offset-2">
           <button type="submit" 
-                  className="btn btn-success">Create Playlist</button>
+                  className="btn btn-success"
+		  >Create Playlist</button>
+
         </div>
       </div>
     </fieldset>

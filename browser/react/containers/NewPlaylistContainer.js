@@ -19,7 +19,6 @@ class NewPlaylistContainer extends React.Component {
   FormChange(event){
     this.setState({inputValue:event.target.value});
     this.setState({isValid: this.isValidInput(event.target.value)});
-    console.log("isValidInput",this.state.isValid,this.state.inputValue);
   }
 
   HandleSubmit(event){
@@ -29,7 +28,6 @@ class NewPlaylistContainer extends React.Component {
   }
 
   isValidInput(str){
-    console.log("VAL:",str);
     let isNotEmpty=()=> str.length === 0 ? false : true;
     
     let isLessThanSixteenChar=()=> str.length <= 16 ? true : false;
